@@ -26,6 +26,7 @@ con.connect((err)=>{
 }) //connect to database
 
 app.use(express.static("public")); //styles and js in this folder
+app.use(bodyParser.urlencoded({extended: true})); //middleware for handling user input.
 
 app.get("/", (req, res)=>{
 res.render("registration.ejs");
