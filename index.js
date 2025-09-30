@@ -47,15 +47,15 @@ app.post("/register", (req, res)=>{
 		bcrypt.hash(finalPassword, saltRounds, function (err, hash) {
     		if (err) {
         	console.error(err);
+			return;
     		}
-    	console.log(hash);
-		});
-		let sql = `INSERT INTO students (name, email, password) VALUES (?, ?, ?)`;
-		con.query(sql, [name, email, hash], function (err, result){
+
+			let sql = `INSERT INTO students (name, email, password) VALUES (?, ?, ?)`;
+			con.query(sql, [name, email, hash], function (err, result){
 			if (err) throw err;
 			console.log("1 record inserted");
 			// res.redirect('/');
+			})
 		});
-
 	}
 })
