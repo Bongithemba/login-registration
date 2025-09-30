@@ -67,4 +67,10 @@ body {
   border-radius: 4px;
 }
 
+#loginform {
+  height: 50px;
+  margin-top: -41px;
+  padding-left: 40px;
+}
+
 

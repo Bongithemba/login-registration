@@ -32,6 +32,10 @@ app.get("/", (req, res)=>{
 res.render("registration.ejs");
 })
 
+app.get("/login", (req, res)=>{
+	res.render("login.ejs");
+})
+
 app.post("/register", (req, res)=>{
 	let name = req.body["fullname"];
 	let email = req.body["email"];
@@ -54,7 +58,7 @@ app.post("/register", (req, res)=>{
 			con.query(sql, [name, email, hash], function (err, result){
 			if (err) throw err;
 			console.log("1 record inserted");
-			// res.redirect('/');
+			res.render('registration.ejs', {message: "Registration Successful! Log in to Continue."});
 			})
 		});
 	}
